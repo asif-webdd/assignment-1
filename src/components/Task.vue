@@ -5,7 +5,7 @@ const tasks = ref([
   {
     'name': 'Task 1',
     'desc' : 'Here are the biggest enterprise technology acquisitions of 2021 so far',
-    'time': 1
+    'time': 60
   },
   {
     'name': 'Task 2',
@@ -16,15 +16,15 @@ const tasks = ref([
 
 const popup = ref(false)
 
-const inputs = {
+const inputs = () => ({
   name: "",
   desc: "",
   time: ""
-}
-const allData = ref(inputs)
+})
+const allData = ref(inputs())
 function addNewTask(){
   tasks.value.push(allData.value)
-  allData.value = inputs
+  allData.value = inputs()
 
   popup.value = false
 }
